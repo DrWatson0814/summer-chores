@@ -1,12 +1,11 @@
-
-function mowYard(name) {
-    return new Promise ((resolve, reject) => {
-    resolve `${name} finished mowing the yard.`;
-});
-}
+const chores = new Promise ((resolve, reject) => {
+        setTimeout(() => {
+                resolve `${name} finished mowing the yard.`;
+            }, 2000);
+    });
 function weedEat(name) {
     const isTired = Math.random() < .40;
-    return new Promise((resolve, reject) => {
+    const weed = new Promise((resolve, reject) => {
         if(isTired) {
             resolve `${name} finished weed eating the yard.`;
         }else {
@@ -15,8 +14,8 @@ function weedEat(name) {
     });
 }
 function trimHedges(name) {
-    const isTired = Math.random() < .40;
-    return new Promise((resolve, reject) => {
+    const isTired = Math.random() < .25;
+    const trim = new Promise((resolve, reject) => {
         if(isTired) {
             resolve `${name} finished trimming the hedges.`;
         }else {
@@ -25,8 +24,8 @@ function trimHedges(name) {
     });
 }
 function collectWood(name) {
-    const isTired = Math.random() < .40;
-    return new Promise((resolve, reject) => {
+    const isTired = Math.random() < .35;
+    const collect = new Promise((resolve, reject) => {
         if(isTired) {
             resolve `${name} finished collecting wood.`;
         }else {
@@ -35,8 +34,8 @@ function collectWood(name) {
     });
 }
 function waterGarden(name) {
-    const isTired = Math.random() < .40;
-    return new Promise((resolve, reject) => {
+    const isTired = Math.random() < .20;
+    const water = new Promise((resolve, reject) => {
         if(isTired) {
             resolve `${name} finished weed watering the garden.`;
         }else {
@@ -49,3 +48,29 @@ function finishedChores(name) {
 };
 
 
+function doSummerChores(name) {
+    
+chores
+.then((value) => {
+    console.log(value);
+    return weed;
+})
+.then((value) => {
+    console.log(value);
+    return trim;
+})
+.then((value) => {
+    console.log(value);
+    return collect;
+})
+.then((value) => {
+    console.log(value);
+    return water;
+})
+.then((value) => {
+    console.log(value);
+    return finishedChores;
+})
+};
+
+doSummerChores('AJ');
