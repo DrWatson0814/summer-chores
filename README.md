@@ -1,9 +1,3 @@
-# summer-chores
-
-
-
-
-
 # <u>Summer Chores</u>
 
 
