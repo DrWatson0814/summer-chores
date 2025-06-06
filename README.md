@@ -24,23 +24,57 @@
 
 ## <u>Examples:</u>
 
-This is an example of the "Callback Hell" that the program is intended to highlight.
+This is an example showing the main function and also the method chain utilizing promises that the program is intended to teach and highlight.
 
 ```javascript
 function doSummerChores(name) {
-    mowYard(name, () => {
-        weedEat(name, () => {
-            trimHedges(name, () => {
-                collectWood(name, () => {
-                    waterGarden(name, () => {
-                        finishedChores(name);
-                    });
-                });
-            });
-        });
-    });
+
+    mowYard(name)
+
+    .then(value => {
+
+        console.log(value);
+
+        return weedEat(name);
+
+    })
+
+    .then(value => {
+
+        console.log(value);
+
+        return trimHedges(name);
+
+    })
+
+    .then(value => {
+
+        console.log(value);
+
+        return collectWood(name);
+
+    })
+
+    .then(value => {
+
+        console.log(value);
+
+        return waterGarden(name);
+
+    })
+
+    .then(value => {
+
+        console.log(value);
+
+        return finishedChores(name);
+
+    })
+    .catch(error => console.error(error))
+
 }
 ```
+
 
 
 ## <u>Contributing:</u>
