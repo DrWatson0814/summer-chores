@@ -71,3 +71,6 @@ async function doSummerChores(name) {
     console.error(error);
   }
 }
+
+
+doSummerChores('AJ');

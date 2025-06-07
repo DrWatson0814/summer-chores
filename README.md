@@ -24,56 +24,55 @@
 
 ## <u>Examples:</u>
 
-This is an example showing the main function and also the method chain utilizing promises that the program is intended to teach and highlight.
+This is an example showing the main function and also the method chain utilizing async/await that the program is intended to teach and highlight.
+
 
 ```javascript
-function doSummerChores(name) {
+async function doSummerChores(name) {
 
-    mowYard(name)
+  try {
 
-    .then(value => {
+    const mow = await mowYard(name);
 
-        console.log(value);
+    console.log(mow);
 
-        return weedEat(name);
+  
 
-    })
+    const eat = await weedEat(name);
 
-    .then(value => {
+    console.log(eat);
 
-        console.log(value);
+  
 
-        return trimHedges(name);
+    const trim = await trimHedges(name);
 
-    })
+    console.log(trim);
 
-    .then(value => {
+  
 
-        console.log(value);
+    const collect = await collectWood(name);
 
-        return collectWood(name);
+    console.log(collect);
 
-    })
+  
 
-    .then(value => {
+    const water = await waterGarden(name);
 
-        console.log(value);
+    console.log(water);
 
-        return waterGarden(name);
+  
 
-    })
+    console.log(`${name} finished all of the chores!`);
 
-    .then(value => {
+  } catch (error) {
 
-        console.log(value);
+    console.error(error);
 
-        return finishedChores(name);
-
-    })
-    .catch(error => console.error(error))
+  }
 
 }
 ```
+
 
 
 
